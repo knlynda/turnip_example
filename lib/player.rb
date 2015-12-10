@@ -5,7 +5,14 @@ class Player
     @hp = hp.to_i
     @armor = armor.to_i
     @damage = damage.to_i
-    @live = true
+  end
+
+  def live?
+    hp > 0
+  end
+
+  def die?
+    hp <= 0
   end
 
   def attack(someone)
@@ -14,25 +21,11 @@ class Player
 
   def kill(someone)
     raise "I can not kill the #{someone.class}" if someone.armor > damage
-
-    loop do
-      break if someone.die?
-      someone.get_damage(damage)
-    end
+    someone.get_damage(damage) until someone.die?
   end
 
+  protected
   def get_damage(damage)
-    if armor < damage
-      @hp = hp + armor - damage
-      @live = hp > 0
-    end
-  end
-
-  def live?
-    live
-  end
-
-  def die?
-    !live
+    @hp = (hp + armor - damage) if armor < damage
   end
 end
