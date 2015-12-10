@@ -1,29 +1,27 @@
 module AttackMonsterSteps
-  step 'I am a player' do
-    @player = Player.new
+  attr_accessor :human, :monster
+
+  # GIVEN #
+
+  step 'I am a human' do
+    self.human = Human.new
   end
 
   step 'there is a monster' do
-    @monster = Monster.new
+    self.monster = Monster.new
   end
 
+  # WHEN #
 
   step 'I attack monster' do
-    @player.attack(@monster)
+    human.attack monster
   end
 
   step 'I kill monster' do
-    @player.kill(@monster)
+    human.kill monster
   end
 
-
-  step 'monster should die' do
-    expect(@monster).to_not be_live
-  end
-
-  step 'monster should not die' do
-    expect(@monster).to be_live
-  end
+  # THEN #
 end
 
 RSpec.configure { |c| c.include AttackMonsterSteps, attack_monster_steps: true }

@@ -1,6 +1,7 @@
 require 'rspec'
-require 'monster'
 require 'player'
+require 'human'
+require 'monster'
 
 RSpec.configure do |config|
   config.color = true

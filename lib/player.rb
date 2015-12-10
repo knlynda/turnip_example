@@ -1,10 +1,10 @@
 class Player
   attr_reader :hp, :armor, :damage, :live
 
-  def initialize
-    @hp = 100
-    @armor = 3
-    @damage = 10
+  def initialize(hp=100, armor=3, damage=10)
+    @hp = hp
+    @armor = armor
+    @damage = damage
     @live = true
   end
 
@@ -22,12 +22,12 @@ class Player
   end
 
   def get_damage(damage)
-    if armor < damage
-      @hp = hp + armor - damage
-      @live = hp > 0
+    hp.tap do
+      if armor < damage
+        @hp = hp + armor - damage
+        @live = hp > 0
+      end
     end
-
-    hp
   end
 
   def live?

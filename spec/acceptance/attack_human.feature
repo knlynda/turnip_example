@@ -1,8 +1,8 @@
 @attack_monster_steps
-Feature: Attacking a monster
-  As human
-  I want to attack monsters
-  So I can attack and kill monsters
+Feature: Attacking a human
+  As monster
+  I want to attack humans
+  So I can attack and kill humans
 
   Background:
     Given I am a human
