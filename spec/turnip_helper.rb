@@ -4,10 +4,10 @@ Dir.glob('spec/steps/**/*steps.rb') { |f| load f, true }
 
 placeholder :whether_to do
   match /should not/ do
-    :to
+    :not_to
   end
 
   match /should/ do
-    :not_to
+    :to
   end
 end

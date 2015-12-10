@@ -2,9 +2,9 @@ class Player
   attr_reader :hp, :armor, :damage, :live
 
   def initialize(hp=100, armor=3, damage=10)
-    @hp = hp
-    @armor = armor
-    @damage = damage
+    @hp = hp.to_i
+    @armor = armor.to_i
+    @damage = damage.to_i
     @live = true
   end
 
@@ -32,5 +32,9 @@ class Player
 
   def live?
     live
+  end
+
+  def die?
+    !live
   end
 end
