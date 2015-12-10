@@ -10,11 +10,9 @@ module Turnip::Steps
   end
 
   step 'monsters :whether_to die' do |whether_to|
-    expect(monsters.map(&:live?).uniq).send whether_to, be_die
-  end
-
-  step 'humans :whether_to die' do |whether_to|
-    expect(humans.map(&:live?).uniq).send whether_to, be_die
+    monsters.each do |monster|
+      expect(monster).send whether_to, be_die
+    end
   end
 end
 

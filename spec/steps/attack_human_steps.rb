@@ -1,4 +1,4 @@
-module AttackMonsterSteps
+module AttackHumanSteps
   attr_accessor :monster, :human
 
   # GIVEN #
@@ -24,4 +24,4 @@ module AttackMonsterSteps
   # THEN #
 end
 
-RSpec.configure { |c| c.include AttackMonsterSteps, attack_human_steps: true }
+RSpec.configure { |c| c.include AttackHumanSteps, attack_human_steps: true }

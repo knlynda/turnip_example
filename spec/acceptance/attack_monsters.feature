@@ -7,15 +7,15 @@ Feature: Attacking a monsters
   Background:
     Given I am a human
     And there is a monsters:
-      | hp | armor | damage |
-      | 1  | 3     | 10     |
-      | 2  | 2     | 10     |
-      | 3  | 1     | 10     |
+      | hp  | armor | damage |
+      | 100 | 3     | 50     |
+      | 200 | 2     | 50     |
+      | 300 | 1     | 50     |
 
   Scenario: attack the monster
     When I attack monsters
-    Then monster should not die
+    Then monsters should not die
 
   Scenario: kill the monster
     When I kill monsters
-    Then monster should die
+    Then monsters should die

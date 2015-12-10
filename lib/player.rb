@@ -16,17 +16,15 @@ class Player
     raise "I can not kill the #{someone.class}" if someone.armor > damage
 
     loop do
-      break unless someone.live?
+      break if someone.die?
       someone.get_damage(damage)
     end
   end
 
   def get_damage(damage)
-    hp.tap do
-      if armor < damage
-        @hp = hp + armor - damage
-        @live = hp > 0
-      end
+    if armor < damage
+      @hp = hp + armor - damage
+      @live = hp > 0
     end
   end
 
